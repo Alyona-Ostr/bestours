@@ -11,9 +11,11 @@ class MainController
     public function indexPage(View $view)
     {
         $tour = ORM::forTable('tour')->find_many();
+        $review = ORM::forTable('review')->find_many();
 
         return $view->make('index', [
-            'tours'=>$tour
+            'tours'=>$tour,
+            'items'=>$review
         ]);
     }
     public function contact(View $view)
