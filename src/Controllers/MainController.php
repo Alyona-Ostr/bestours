@@ -41,10 +41,12 @@ class MainController
     {
         $review = ORM::forTable('review')->where('tour_id', $id)->find_many();
         $tour = ORM::forTable('tour')->find_one($id);
+        $program = ORM::forTable('program')->where('tour_id', $id)->find_many();
 
         return $view->make('detail-page', [
             'items'=>$review,
-            'tour'=>$tour
+            'tour'=>$tour,
+            'programs' => $program
         ]);
     }
 
