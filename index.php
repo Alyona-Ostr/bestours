@@ -18,6 +18,12 @@ $router = Router::create();
 $router->setupView("views");
 
 $router->get("/", [\Src\Controllers\MainController::class, "indexPage"]);
+$router->get("/about", [\Src\Controllers\MainController::class, "aboutPage"]);
+$router->get("/faq", [\Src\Controllers\MainController::class, "faqPage"]);
+$router->get("/blog", [\Src\Controllers\MainController::class, "blog"]);
+$router->get("/blogpost", [\Src\Controllers\MainController::class, "blog_post"]);
+
+
 $router->get("/contact", [\Src\Controllers\MainController::class, "contact"]);
 $router->post("/contact", [\Src\Controllers\AuthController::class, "contact"]);
 

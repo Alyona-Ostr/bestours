@@ -42,13 +42,35 @@ class MainController
         $review = ORM::forTable('review')->where('tour_id', $id)->find_many();
         $tour = ORM::forTable('tour')->find_one($id);
         $program = ORM::forTable('program')->where('tour_id', $id)->find_many();
+        $features = ORM::forTable('features')->where('tour_id', $id)->find_many();
+        $rating = ORM::forTable('review')->where('tour_id', $id)->select('rating')->find_many();
+
 
         return $view->make('detail-page', [
             'items'=>$review,
             'tour'=>$tour,
-            'programs' => $program
+            'programs' => $program,
+            'features' => $features
         ]);
     }
+    public function aboutPage(View $view)
+    {
+        return $view->make('about');
 
+    }
+    public function faqPage(View $view)
+    {
+        return $view->make('faq');
+    }
+
+    public function blog(View $view)
+    {
+        return $view->make('blog');
+    }
+
+    public function blog_post(View $view)
+    {
+        return $view->make('blog_post');
+    }
 
 }
